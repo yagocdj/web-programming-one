@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+</head>
+<body>
+    <main>
+        <h1>Calculando o seu IMC</h1>
+        <!-- <label for="weight"></label>
+        <input type="number" name="weight" id="weight-input">
+        <label for="height"></label>
+        <input type="number" name="height" id="height-input"> -->
+    </main>
+    <script>
+        
+        let name = Number(window.prompt('Digite o seu nome: '));
+        let weight = Number(window.prompt('Digite a sua massa (Kg): '));
+        let height = Number(window.prompt('Digite a sua altura (m): '));
+
+        if (Number.isNaN(altura))
+            window.alert('A altura digitada precisa ser um número');
+
+
+        let imc = weight / (height ** 2);
+        let classificacao;
+
+        if (imc < 18.5) classificacao = 'Magreza';
+        else if (imc <= 24.9) classificacao = 'Normal';
+        else if (imc <= 29.9) classificacao = 'Sobrepeso';
+        else if (imc <= 39.9) classificacao = 'Obesidade';
+        else classificacao = 'Obeso';
+
+        window.alert(`Nome: ${name} | IMC: ${imc} | Classificação: ${classificacao}`);
+
+    </script>
+</body>
+</html>
