@@ -55,5 +55,3 @@ console.log(`
  Data de nascimento: ${pessoaTres.dataDeNascimento}
  CPF: ${pessoaTres.cnpj}
 `);
-
-
