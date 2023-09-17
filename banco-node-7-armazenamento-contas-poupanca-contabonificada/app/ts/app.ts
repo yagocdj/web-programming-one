@@ -14,7 +14,7 @@ console.log('Poupanca: ' + p1.saldo);
 cb1.creditar(100);
 console.log('Conta Bonificada: ' + cb1.saldo);
 
-// Manipulando 'Pessoa' e suas subclasses
+// Criando objetos das classes 'Pessoa', 'PessoaFisica' e 'PessoaJuridica'
 
 const pessoaUm = new Pessoa(
     'Marcela',
