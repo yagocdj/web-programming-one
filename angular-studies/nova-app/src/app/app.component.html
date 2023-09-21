@@ -1,0 +1,21 @@
+<!--String interpolation-->
+<p>
+  {{title}}
+</p>
+Hello, {{user.name}}!
+<br>
+<!--Property biding-->
+<!--<input [value]="user.name" type="text">-->
+<!--Two-way data binding-->
+<label for="name-input">Name: </label>
+<input [(ngModel)]="user.name" id="name-input"><br>
+<label for="cpf-input">CPF: </label>
+<input [(ngModel)]="user.cpf" id="cpf-input"><br>
+<label for="age-input">Age: </label>
+<input [(ngModel)]="user.age" id="age-input"><br>
+<!--Event biding-->
+<button (click)="insertUser()">Send</button>
+
+<ul>
+  <li *ngFor="let user of users">{{user.name}}</li>
+</ul>

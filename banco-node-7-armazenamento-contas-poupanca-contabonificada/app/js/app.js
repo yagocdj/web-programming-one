@@ -28,5 +28,5 @@ console.log(`
  Nome: ${pessoaTres.nome}
  Idade: ${pessoaTres.idade}
  Data de nascimento: ${pessoaTres.dataDeNascimento}
- CPF: ${pessoaTres.cnpj}
+ CNPJ: ${pessoaTres.cnpj}
 `);
