@@ -1,0 +1,9 @@
+.mensagem-erro {
+  color: red;
+}
+
+.mat-card-simples {
+  max-width: 400px;
+  background-color: aliceblue;
+  margin-top: 10px;
+}
