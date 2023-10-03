@@ -13,12 +13,10 @@
           <mat-label>Title</mat-label>
           <input matInput [(ngModel)]="task.title" placeholder="Task's title">
         </mat-form-field>
-
         <mat-form-field class="main-mat-form" appearance="fill">
           <mat-label>Due date</mat-label>
           <input matInput [(ngModel)]="task.date" type="date">
         </mat-form-field>
-
         <mat-form-field class="main-mat-form" appearance="fill">
           <mat-label>Description</mat-label>
           <textarea matInput [(ngModel)]="task.description" placeholder="Task's description"></textarea>
@@ -40,26 +38,26 @@
     <div id="search-elements">
       <mat-form-field>
         <mat-label>Search by title</mat-label>
-        <input matInput type="text">
+        <input matInput type="text" (keyup)="searchByTaskTitle(filterInput.value)" #filterInput>
       </mat-form-field>
-      <button mat-fab color="primary">
-        <mat-icon>search</mat-icon>
-      </button>
+      <mat-checkbox (change)="changeIsToFilter()">
+        Filter by task title
+      </mat-checkbox>
     </div>
 
-    <mat-card *ngFor="let task of allTasks" class="mat-card-simples">
-      <mat-card-header>
-        <mat-card-title><mat-icon>task</mat-icon> {{task.id}}. {{task.title}}</mat-card-title>
-        <mat-card-subtitle *ngIf="task.date">Due date: {{task.date | date}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        {{task.description}}
-      </mat-card-content>
-      <mat-card-footer class="task-card-footer">
-        <button mat-fab color="primary" (click)="removeTask(task)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </mat-card-footer>
-    </mat-card>
+      <mat-card *ngFor="let task of (isToFilterByTitle ? filteredTasks : tasks)" class="mat-card-simples">
+        <mat-card-header>
+          <mat-card-title><mat-icon>task</mat-icon> {{task.id}}. {{task.title}}</mat-card-title>
+          <mat-card-subtitle *ngIf="task.date">Due date: {{task.date | date}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          {{task.description}}
+        </mat-card-content>
+        <mat-card-footer class="task-card-footer">
+          <button mat-fab color="primary" (click)="removeTask(task)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-footer>
+      </mat-card>
   </section>
 </main>

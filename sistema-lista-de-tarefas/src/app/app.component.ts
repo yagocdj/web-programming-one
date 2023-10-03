@@ -9,38 +9,49 @@ import {Task} from '../shared/model/task';
 export class AppComponent {
   title = 'TO DO list';
   task: Task;
-  allTasks: Array<Task>;
+  tasks: Array<Task>;
   filteredTasks: Array<Task>;
+  isToFilterByTitle: boolean;
 
   constructor() {
-    this.allTasks = new Array<Task>();
+    this.tasks = new Array<Task>();
     this.filteredTasks = new Array<Task>();
     this.task = new Task(this.generateTaskId());
+    this.isToFilterByTitle = false;
   }
 
   insertTask(): void {
-    this.allTasks.push(this.task);
+    this.tasks.push(this.task);
     this.task = new Task(this.generateTaskId());
   }
 
   removeTask(taskToBeRemoved: Task): void {
-    const toBeRemovedTaskIndex = this.allTasks.findIndex(
+    const toBeRemovedTaskIndex = this.tasks.findIndex(
       (task: Task) => task.id === taskToBeRemoved.id);
     if (toBeRemovedTaskIndex >= 0) {
-      this.allTasks.splice(toBeRemovedTaskIndex, 1);
+      this.tasks.splice(toBeRemovedTaskIndex, 1);
     }
   }
 
   private generateTaskId(): number {
-    if (this.allTasks.length > 0) {
-      return this.allTasks[this.allTasks.length - 1].id + 1;
+    if (this.tasks.length > 0) {
+      return this.tasks[this.tasks.length - 1].id + 1;
     }
     return 1;
   }
 
   searchByTaskTitle(taskTitle: string): void {
-    this.filteredTasks = this.allTasks.filter(
-      (task: Task) => task.title.startsWith(taskTitle));
+    if (this.isToFilterByTitle) {
+      this.filteredTasks = [];
+      this.tasks.forEach(task => {
+        if (task.title.startsWith(taskTitle)) {
+          this.filteredTasks.push(task);
+        }
+      });
+    }
+  }
 
+  changeIsToFilter(): void {
+    this.isToFilterByTitle = ! this.isToFilterByTitle;
   }
 }
