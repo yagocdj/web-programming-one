@@ -8,13 +8,32 @@ import {Task} from '../shared/model/task';
 })
 export class AppComponent {
   title = 'TO DO list';
-  taskInfos: Object;
   task: Task;
   tasks: Array<Task>;
 
   constructor() {
-    this.task = new Task();
     this.tasks = new Array<Task>();
+    this.task = new Task(this.generateTaskId());
+  }
+
+  insertTask(): void {
+    this.tasks.push(this.task);
+    this.task = new Task(this.generateTaskId());
+  }
+
+  removeTask(taskToBeRemoved: Task): void {
+    const toBeRemovedTaskIndex = this.tasks.findIndex(
+      (task: Task) => task.id === taskToBeRemoved.id);
+    if (toBeRemovedTaskIndex >= 0) {
+      this.tasks.splice(toBeRemovedTaskIndex, 1);
+    }
+  }
+
+  private generateTaskId(): number {
+    if (this.tasks.length > 0) {
+      return this.tasks[this.tasks.length - 1].id + 1;
+    }
+    return 1;
   }
 
   // titulo = 'Social IFPB';

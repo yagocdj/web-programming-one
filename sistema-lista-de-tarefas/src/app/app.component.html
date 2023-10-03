@@ -6,33 +6,38 @@
     <mat-card-content class="flex-column-wrap">
       <mat-form-field class="main-mat-form" appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput [(ngModel)]="task?.title" placeholder="Task's title">
+        <input matInput [(ngModel)]="task.title" placeholder="Task's title">
       </mat-form-field>
 
       <mat-form-field class="main-mat-form" appearance="fill">
-        <mat-label>CPF</mat-label>
-        <input matInput [(ngModel)]="usuario.cpf" placeholder="digite o cpf">
+        <mat-label>Due date</mat-label>
+        <input matInput [(ngModel)]="task.date" type="date">
       </mat-form-field>
 
       <mat-form-field class="main-mat-form" appearance="fill">
-        <mat-label>Idade</mat-label>
-        <input matInput [(ngModel)]="usuario.idade" placeholder="digite a idade">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="task.description" type="text" placeholder="Task's description">
       </mat-form-field>
     </mat-card-content>
     <mat-card-footer class="flex-column-wrap place-center">
-      <button mat-fab color="primary" (click)="inserirUsuario()">
+      <button mat-fab color="primary" (click)="insertTask()">
         <mat-icon>add</mat-icon>
       </button>
     </mat-card-footer>
   </mat-card>
 
-  <mat-card *ngFor="let usuario of usuarios" class="mat-card-simples colorful-background">
+  <mat-card *ngFor="let task of tasks" class="mat-card-simples colorful-background">
     <mat-card-header>
-      <mat-card-title><mat-icon>person</mat-icon>{{usuario.nome}}</mat-card-title>
-      <mat-card-subtitle *ngIf="usuario.cpf">CPF: {{usuario.cpf}} Idade: {{usuario.idade}}</mat-card-subtitle>
+      <mat-card-title><mat-icon>task</mat-icon>{{task.title}}</mat-card-title>
+      <mat-card-subtitle *ngIf="task.date">ID: {{task.id}} ; Due date: {{task.date | date}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-       The user {{usuario.nome}} is {{usuario.idade}} old. This is a generic user description.
+       {{task.description}}
     </mat-card-content>
+    <mat-card-footer class="task-card-footer">
+      <button mat-fab color="primary" (click)="removeTask(task)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-footer>
   </mat-card>
 </main>
