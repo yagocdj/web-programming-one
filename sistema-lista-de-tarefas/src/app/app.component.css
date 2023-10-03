@@ -43,8 +43,8 @@
   flex-flow: column wrap;
 }
 
-.place-center {
-  place-self: center;
+.place-content-center {
+  place-content: center;
 }
 
 .main-mat-form {

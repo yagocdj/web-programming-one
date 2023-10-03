@@ -9,44 +9,38 @@ import {Task} from '../shared/model/task';
 export class AppComponent {
   title = 'TO DO list';
   task: Task;
-  tasks: Array<Task>;
+  allTasks: Array<Task>;
+  filteredTasks: Array<Task>;
 
   constructor() {
-    this.tasks = new Array<Task>();
+    this.allTasks = new Array<Task>();
+    this.filteredTasks = new Array<Task>();
     this.task = new Task(this.generateTaskId());
   }
 
   insertTask(): void {
-    this.tasks.push(this.task);
+    this.allTasks.push(this.task);
     this.task = new Task(this.generateTaskId());
   }
 
   removeTask(taskToBeRemoved: Task): void {
-    const toBeRemovedTaskIndex = this.tasks.findIndex(
+    const toBeRemovedTaskIndex = this.allTasks.findIndex(
       (task: Task) => task.id === taskToBeRemoved.id);
     if (toBeRemovedTaskIndex >= 0) {
-      this.tasks.splice(toBeRemovedTaskIndex, 1);
+      this.allTasks.splice(toBeRemovedTaskIndex, 1);
     }
   }
 
   private generateTaskId(): number {
-    if (this.tasks.length > 0) {
-      return this.tasks[this.tasks.length - 1].id + 1;
+    if (this.allTasks.length > 0) {
+      return this.allTasks[this.allTasks.length - 1].id + 1;
     }
     return 1;
   }
 
-  // titulo = 'Social IFPB';
-  // usuario: Usuario;
-  // usuarios: Array<Usuario>;
-  //
-  // constructor() {
-  //   this.usuario = new Usuario();
-  //   this.usuarios = new Array<Usuario>();
-  // }
-  //
-  // inserirUsuario(): void {
-  //   this.usuarios.push(this.usuario);
-  //   this.usuario = new Usuario();
-  // }
+  searchByTaskTitle(taskTitle: string): void {
+    this.filteredTasks = this.allTasks.filter(
+      (task: Task) => task.title.startsWith(taskTitle));
+
+  }
 }
