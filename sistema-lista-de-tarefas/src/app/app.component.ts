@@ -48,6 +48,7 @@ export class AppComponent {
   }
 
   changeIsToFilter(): void {
+    this.filteredTasks = [];
     this.isToFilterByTitle = ! this.isToFilterByTitle;
   }
 

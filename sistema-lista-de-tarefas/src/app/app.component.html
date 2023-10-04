@@ -44,7 +44,7 @@
         <input matInput type="text" (keyup)="searchByTaskTitle(filterInput.value)" #filterInput>
       </mat-form-field>
       <mat-checkbox (change)="changeIsToFilter()">
-        Filter by task title
+        Filter by task title (click here before typing something)
       </mat-checkbox>
     </div>
 
@@ -57,10 +57,10 @@
           {{task.description}}
         </mat-card-content>
         <mat-card-footer class="task-card-footer">
-          <button mat-fab color="primary" (click)="removeTask(task)">
+          <button *ngIf="!isToFilterByTitle" mat-fab color="primary" (click)="removeTask(task)">
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-fab color="primary" (click)="updateSelectedTask(task)">
+          <button *ngIf="!isToFilterByTitle" mat-fab color="primary" (click)="updateSelectedTask(task)">
             <mat-icon>edit</mat-icon>
           </button>
         </mat-card-footer>
