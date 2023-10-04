@@ -1,17 +1,12 @@
 export class Task {
-  private _id: number;
   private _title: string;
   private _date: Date;
   private _description: string;
 
-  constructor(id: number) {
-    this._id = id;
+  constructor() {
     this._title = '';
     this._date = new Date();
     this._description = '';
-  }
-  get id(): number {
-    return this._id;
   }
 
   get title(): string {
