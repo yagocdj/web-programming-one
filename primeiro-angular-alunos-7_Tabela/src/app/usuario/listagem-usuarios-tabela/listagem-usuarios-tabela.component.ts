@@ -3,6 +3,7 @@ import { Usuario } from '../../shared/modelo/usuario';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsuarioService } from '../../shared/services/usuario.service';
 import { Router } from '@angular/router';
+import { MensagemService } from 'src/app/shared/services/mensagem.service';
 
 
 @Component({
@@ -14,7 +15,11 @@ export class ListagemUsuariosTabelaComponent implements OnInit {
   dataSource: MatTableDataSource<Usuario>;
   mostrarColunas = ['nome', 'cpf', 'idade', 'telefone', 'acoes'];
 
-  constructor(private usuarioService: UsuarioService, private roteador: Router) {
+  constructor(
+    private usuarioService: UsuarioService,
+    private roteador: Router,
+    private mensagemService: MensagemService
+  ) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -37,6 +42,7 @@ export class ListagemUsuariosTabelaComponent implements OnInit {
           this.dataSource.data.splice(indx, 1);
           this.dataSource = new MatTableDataSource<Usuario>(this.dataSource.data);
         }
+        this.mensagemService.alerta('Usuário removido com sucesso!');
       }
     );
   }
