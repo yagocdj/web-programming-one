@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UsuarioService} from '../../shared/services/usuario.service';
 import {MensagemService} from '../../shared/services/mensagem.service';
 import {IMensagem} from '../../shared/modelo/IMensagem';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-mantem-usuario',
@@ -17,8 +18,13 @@ export class MantemUsuarioComponent {
   estahCadastrando = true;
   nomeBotaoManutencao = 'Cadastrar';
 
-  constructor(private rotaAtual: ActivatedRoute, private roteador: Router,
-              private usuarioService: UsuarioService, private mensagemService: IMensagem) {
+  constructor(
+    private rotaAtual: ActivatedRoute,
+    private roteador: Router,
+    private usuarioService: UsuarioService,
+    private mensagemService: IMensagem,
+    private snackBar: MatSnackBar
+  ) {
     this.usuarioDeManutencao = new Usuario('', 0);
     const idParaEdicao = this.rotaAtual.snapshot.paramMap.get('id');
     if (idParaEdicao) {

@@ -14,6 +14,7 @@ import { FlexModule } from '@angular/flex-layout';
 import { RouterLink } from '@angular/router';
 import { ListagemUsuariosTabelaComponent } from './listagem-usuarios-tabela/listagem-usuarios-tabela.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -35,7 +36,8 @@ import { MatTableModule } from '@angular/material/table';
     PipesModule,
     FlexModule,
     RouterLink,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
   exports: [
     ListagemUsuariosComponent,

@@ -1,6 +1,12 @@
+<input [(ngModel)]="title">
+<h1>{{title}}</h1>
 <div>
   <mat-icon [matBadge]="usuarios.length" matBadgeColor="primary">people</mat-icon>
 </div>
+<!--
+fxLayout.lt-sm -> quando o layout estiver menor do que 'small' (lt - less than)
+fxLayout.lt-sm="column" -> quando 'less than small', mostre como 'column'
+-->
 <div fxLayout="row wrap" fxLayout.lt-sm="column">
   <mat-card fxFlex="20" class="card-usuario" *ngFor="let usuario of usuarios">
     <mat-card-header>
@@ -8,7 +14,7 @@
       <mat-card-subtitle *ngIf="usuario.cpf.length > 0">CPF: {{usuario.cpf | cpf}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      Professor em.... Tem {{usuario.idade}} anos
+      Eu me chamo {{usuario.nome | titlecase}} e tenho {{usuario.idade}} anos.
     </mat-card-content>
     <mat-card-actions>
       <button mat-button [routerLink]="['/editausuario', usuario.cpf]">

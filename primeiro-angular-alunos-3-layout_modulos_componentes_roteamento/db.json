@@ -1,0 +1,31 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Gustavo",
+      "idade": 42,
+      "cpf": "12345678910"
+    },
+    {
+      "id": 2,
+      "nome": "Yago",
+      "idade": 31,
+      "cpf": "11122211120"
+    },
+    {
+      "id": 3,
+      "nome": "Manu",
+      "idade": 29,
+      "cpf": "99900011140"
+    },
+    {
+      "id": 4,
+      "nome": "Luana",
+      "idade": 45,
+      "cpf": "19921195910"
+    }
+  ],
+  "tarefas": [
+
+  ]
+}
