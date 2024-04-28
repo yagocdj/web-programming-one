@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: min(350px, 350px);
+}
+
+.card-content {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.mensagem-erro {
+  color: red;
+}
+
+.example-card {
+  max-width: 400px;
+  background-color: #e6e9f8;
+  margin: 10px;
+}
+
+.example-header-image {
+  background-image: url('https://img.freepik.com/fotos-premium/rosto-bonito-do-Student-perto-da-sala-de-aula-do-ensino-fundamental-crianca-estudando-em-casa-e-escola-de-educacao-em-casa_265223-79510.jpg');
+  background-size: cover;
+}
+
+.demo-section + .demo-section {
+  margin-top: 30px;
+}

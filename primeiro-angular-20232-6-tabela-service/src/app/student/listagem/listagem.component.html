@@ -1,0 +1,36 @@
+<div fxLayout="row wrap" fxLayout.lt-md="column">
+<mat-card class="example-card" *ngFor="let student of students">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{student.nome | titlecase}}</mat-card-title>
+    <mat-card-subtitle>{{student.matricula | matricula}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://www.mundobrink.com/blog/wp-content/uploads/2016/03/TDHA-750x410.jpg" alt="A student worried">
+  <mat-card-content>
+    <p>
+      The student {{student.nome}}, whose age is {{student.idade}}, got the highest mark.
+      His CPF is {{student.cpf | cpf}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-fab color="primary" (click)="remove(student)">
+      <mat-icon> delete</mat-icon>
+    </button>
+    <button mat-icon-button (click)="editar(student.id)">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+</div>
+
+
+<br>
+<input [(ngModel)]="matriculaPesquisada">
+<button mat-button (click)="pesquisar()">Search</button>
+<ul>
+  <li *ngFor="let searchedStudent of searchedStudents">
+    {{searchedStudent.matricula | matricula}}-{{searchedStudent.nome | titlecase}}
+  </li>
+</ul>
+

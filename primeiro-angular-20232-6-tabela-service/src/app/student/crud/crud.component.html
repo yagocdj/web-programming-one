@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Students sign up</h1>
+  <mat-card class="card">
+    <mat-card-content class="card-content">
+      <mat-form-field>
+        <mat-label>Matrícula</mat-label>
+        <input
+          matInput
+          [(ngModel)]="student.matricula"
+          placeholder="Digite sua matrícula"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>CPF</mat-label>
+        <input
+          matInput
+          [(ngModel)]="student.cpf"
+          placeholder="Digite o seu CPF"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          [(ngModel)]="student.nome"
+          placeholder="Digite seu nome"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Idade</mat-label>
+        <input
+          matInput
+          [(ngModel)]="student.idade"
+          placeholder="Digite sua idade"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <button mat-raised-button color="primary" (click)="createOrUpdate()">
+        {{ buttonName }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="mensagem-erro">{{ errorMessage }}</div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "disciplinas": [],
+  "Students": [
+    {
+      "id": 1,
+      "matricula": "123",
+      "cpf": "11100011190",
+      "nome": "Gustavo",
+      "idade": "20"
+    },
+    {
+      "id": 2,
+      "matricula": "124",
+      "cpf": "01101011170",
+      "nome": "Wagner",
+      "idade": "30"
+    },
+    {
+      "id": 3,
+      "matricula": "125",
+      "cpf": "11100022290",
+      "nome": "teste",
+      "idade": "30"
+    },
+    {
+      "id": 4,
+      "matricula": "20211370091",
+      "cpf": "11199911110",
+      "nome": "Lulu",
+      "idade": "25"
+    }
+  ]
+}

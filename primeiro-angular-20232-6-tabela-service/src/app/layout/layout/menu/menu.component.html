@@ -1,0 +1,8 @@
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/register-student']" >create student</button>
+  <button mat-menu-item [routerLink]="['/list-students']">list students</button>
+  <button mat-menu-item [routerLink]="['/register-list-students']">create-list students</button>
+  <button mat-menu-item [routerLink]="['/list-table']">list students - table</button>
+</mat-menu>
+
